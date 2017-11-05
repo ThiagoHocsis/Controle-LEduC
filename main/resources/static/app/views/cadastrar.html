@@ -1,0 +1,47 @@
+<div class=" col-md-6 col-md-offset-3">
+	<div class="panel panel-default">
+		<div class="panel-heading">Cadastro</div>
+		<div class="panel-body">
+			<div class="col-md-12">
+				<form ng-submit="submit()" name="cadastrar" novalidate>
+
+					<div class="form-group"
+						ng-class="{ 'has-error': cadastro.nome.$invalid && cadastro.nome.$dirty }">
+						<label for="name">Nome</label> <input type="text" required
+							class="form-control" ng-model="usuario.nome" id="nome"
+							name="nome">
+					</div>
+
+					<div class="form-group"
+						ng-class="{ 'has-error': cadastro.username.$invalid && cadastro.username.$dirty }">
+						<label for="username">Nome de usuário:</label> <input type="text"
+							required class="form-control" ng-model="usuario.username"
+							id="username" name="username">
+					</div>
+
+					<div class="form-group"
+						ng-class="{ 'has-error': cadastro.senha.$invalid && cadastro.senha.$dirty }">
+						<label for="pwd">Senha:</label> <input type="password" required
+							class="form-control" id="pwd" ng-model="usuario.senha"
+							name="senha">
+					</div>
+
+					<div class="form-group"
+						ng-class="{ 'has-error': cadastro.confirmarSenha.$invalid && cadastro.confirmarSenha.$dirty }">
+						<label for="cpwd">Confirme a senha:</label> <input type="password"
+							name="confirmarSenha" required class="form-control" id="cpwd"
+							ng-model="confirmarSenha">
+					</div>
+
+					<div class="alert alert-warning margin-top-5"
+						ng-show="confirmarSenha != usuario.senha ">Senha não confere.</div>
+
+					<button type="submit" class="btn btn-default"
+						ng-disabled="cadastro.$invalid || (confirmarSenha != usuario.senha)">Cadastrar</button>
+					<button class="btn btn-default" ui-sref="login">Login</button>
+					<div class="alert alert-info margin-top-5" ng-show="message">{{message}}</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

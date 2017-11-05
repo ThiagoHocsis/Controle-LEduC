@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Controle de usuários Laboratório Educação Conectada</title>
+
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<style>
+.margin-top-5 {
+	margin-top: 10px;
+}
+
+.panel-scroll {
+	height: 300px;
+	overflow-y: auto;
+}
+</style>
+<body ng-app="ControleLeduc">
+
+	<div ui-view="nav"></div>
+
+
+
+	<div class="container" style="margin-top: 50px;">
+		<!-- Main view for showing all views -->
+		<div ui-view="content"></div>
+	</div>
+
+	
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+
+	
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	
+	<script type="text/javascript" src="app/app.js"></script>
+	<script type="text/javascript" src="app/route.js"></script>
+
+	
+	<script type="text/javascript" src="app/services/auth-service.js"></script>
+
+	
+	<script type="text/javascript" src="app/controllers/nav.js"></script>
+	<script type="text/javascript" src="app/controllers/login.js"></script>
+	<script type="text/javascript" src="app/controllers/usuario.js"></script>
+	<script type="text/javascript" src="app/controllers/home.js"></script>
+	<script type="text/javascript" src="app/controllers/page-not-found.js"></script>
+	<script type="text/javascript" src="app/controllers/access-denied.js"></script>
+	<script type="text/javascript" src="app/controllers/cadastro.js"></script>
+</body>
+</html>
