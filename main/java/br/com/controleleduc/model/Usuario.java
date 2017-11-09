@@ -10,6 +10,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,7 +31,8 @@ public class Usuario implements UserDetails {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 	
-	private String nome;
+	@Column(name = "nome_usuario")
+	private String nomeUsuario;
 
 	@Column(unique = true)
 	private String username;
@@ -34,6 +40,10 @@ public class Usuario implements UserDetails {
 	private String senha;
 	@ElementCollection
 	private List<String> roles = new ArrayList<>();
+	
+	@ManyToOne
+	@JoinColumn(name = "projeto_id")
+	private Projeto projeto;
 
 	public Long getId() {
 		return id;
@@ -43,12 +53,12 @@ public class Usuario implements UserDetails {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getnomeUsuario() {
+		return nomeUsuario;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setnomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
 	}
 
 	public List<String> getRoles() {

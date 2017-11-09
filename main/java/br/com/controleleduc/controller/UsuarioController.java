@@ -25,7 +25,7 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
-	/* metodo retorna todos os admins cadastrados */
+	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/usuarios", method = RequestMethod.GET)
 	public List<Usuario> usuarios() {
