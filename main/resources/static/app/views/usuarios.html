@@ -9,7 +9,7 @@
 						<div class="form-group"
 							ng-class="{ 'has-error': formularioUsuario.nome.$invalid && formularioUsuario.nome.$dirty }">
 							<label for="name">Nome:</label> <input type="text" required
-								class="form-control" ng-model="usuario.name" id="nome"
+								class="form-control" ng-model="usuario.nomeUsuario" id="nome"
 								name="nome">
 						</div>
 
@@ -25,8 +25,8 @@
 							<label for="role">Permissão:</label> <select required
 								multiple="multiple" class="form-control"
 								ng-model="usuario.roles" id="role" name="role">
-								<option value="ADMIN">Administrador</option>
-								<option value="usuario">usuario</option>
+								<option value="ADMIN">ADMIN</option>
+								<option value="USER">USER</option>
 							</select>
 						</div>
 
@@ -60,29 +60,32 @@
 				<table class="table table-bordered">
 					<thead>
 						<tr>
-							<th>#</th>
+							<th>ID</th>
 							<th>Nome</th>
-							<th>username</th>
+							<th>Username</th>
 							<th>Permissão</th>
+							<th>Projeto</th>
 							<th></th>
 							<th></th>
+							
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="usuario in usuarios">
 							<td>{{$index+1}}</td>
-							<td>{{usuario.nome}}</td>
+							<td>{{usuario.nomeUsuario}}</td>
 							<td>{{usuario.username}}</td>
 							<td><span ng-repeat="role in usuario.roles">{{role}}<span
 									ng-if="$index < (usuario.roles.length-1)">,</span>
 							</span></td>
+							<td>{{usuario.projeto_id}}</td>
 							<td><button type="button" class="btn btn-default btn-sm"
 									ng-click="iniciarEditar(usuario)">
 									<span class="glyphicon glyphicon-edit"></span>
 								</button></td>
 							<td>
 								<button type="button" class="btn btn-default btn-sm"
-									ng-click="deleteUsuario(usuario)">
+									ng-click="deletarUsuario(usuario)">
 									<span class="glyphicon glyphicon-trash"></span>
 								</button>
 							</td>

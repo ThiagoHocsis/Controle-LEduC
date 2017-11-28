@@ -1,12 +1,10 @@
 angular.module('ControleLeduc')
-// Creating the Angular Controller
 .controller('UsuarioController', function($http, $scope, AuthService) {
 	var editar = false;
 	$scope.textoBotao = 'Criar';
 	var iniciar = function() {
 		$http.get('api/usuarios').success(function(response) {
 			$scope.usuarios = response;
-			
 			$scope.formularioUsuario.$setPristine();
 			$scope.message='';
 			$scope.usuario = null;
@@ -39,8 +37,8 @@ angular.module('ControleLeduc')
 	};
 	var editarUsuario = function(){
 		$http.put('api/usuarios', $scope.usuario).success(function(response) {
-			$scope.usuario = null;
-			$scope.confirmarSenha = null;
+			//$scope.usuario = null;
+			//$scope.confirmarSenha = null;
 			$scope.formularioUsuario.$setPristine();
 			$scope.message = "Edição realizada com sucesso!";
 			iniciar();
@@ -56,7 +54,7 @@ angular.module('ControleLeduc')
 			$scope.message = "Usuario criado com sucesso!";
 			iniciar();
 		}).error(function(error) {
-			$scope.message = error.message;
+			$scope.message = "Erro ao inserir usuario";
 		});
 	};
 	$scope.submit = function() {

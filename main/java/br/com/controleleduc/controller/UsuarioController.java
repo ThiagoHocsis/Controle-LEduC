@@ -64,7 +64,7 @@ public class UsuarioController {
 
 	/* metodo que adiciona usuario */
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/usuario", method = RequestMethod.POST)
+	@RequestMapping(value = "/usuarios", method = RequestMethod.POST)
 	public ResponseEntity<Usuario> createUser(@RequestBody Usuario usuario) {
 		if (usuarioRepository.findOneByUsername(usuario.getUsername()) != null) {
 			throw new RuntimeException("Usuário já existe");

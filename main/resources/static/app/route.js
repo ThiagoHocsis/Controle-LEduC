@@ -33,6 +33,18 @@ angular.module('ControleLeduc').config(function($stateProvider, $urlRouterProvid
 				controller : 'UsuarioController',
 			}
 		}
+	}).state('projetos', {
+		parent : 'nav',
+		url : '/projetos',
+		data : {
+			role : 'ADMIN'
+		},
+		views : {
+			'content@' : {
+				templateUrl : 'app/views/projetos.html',
+				controller : 'ProjetoController',
+			}
+		}
 	}).state('home', {
 		parent : 'nav',
 		url : '/',

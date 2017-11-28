@@ -26,13 +26,13 @@ public class Tarefa {
 	private String nomeTarefa;
 	
 	@ManyToOne
-	@JoinColumn
+	@JoinColumn(name = "projeto_id")
 	private Projeto projeto;
 	
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	 @JoinTable(
 	  name = "usuario_tarefa",
-	  joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "tarefa_id"))
+	  joinColumns = @JoinColumn(name = "tarefa_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
 	
 	private Collection<Usuario> usuarios;
 

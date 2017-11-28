@@ -24,6 +24,10 @@ public class Projeto {
 	private String nomeProjeto;
 	
 	@OneToMany(mappedBy = "projeto", targetEntity = Usuario.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Tarefa> tarefas;
+
+	
+	@OneToMany(mappedBy = "projeto", targetEntity = Usuario.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Usuario> usuarios;
 
 	public Long getId() {
